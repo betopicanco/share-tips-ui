@@ -20,16 +20,23 @@ interface ITipPage {
 }
 
 export default function TipPage({ tip }: ITipPage) {
-  const { title, content, subjects } = tip;
+  const { title, content, subjects, createdAt, author } = tip;
 
   return (
     <Layout>
       <main>
-        <article>
-          <h2>{title}</h2>
-          <div>{content}</div>
-          
-          <SubjectsList subjects={subjects}/>
+        <article className="my-4">
+          <h2 className="text-3xl text-yellow-500 my-4">{title}</h2>
+
+          <div className="text-neutral-400 flex justify-between w-full">
+            <span>{createdAt}</span>
+
+            <span>{author.name}</span>
+          </div>
+
+          <div className="mt-2 indent-4">{content}</div>
+
+          <SubjectsList subjects={subjects} />
         </article>
       </main>
     </Layout>

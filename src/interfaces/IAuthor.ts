@@ -1,3 +1,5 @@
 export default interface IAuthor {
-  name: string
+  id: number,
+  name: string,
+  email: string
 }
