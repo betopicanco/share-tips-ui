@@ -14,11 +14,11 @@ export async function getServerSideProps() {
   };
 }
 
-interface IIndex {
+interface IndexProps {
   tips: ITip[];
 }
 
-export default function Index({ tips }: IIndex) {
+export default function Index({ tips }: IndexProps) {
   return (
     <Layout>
       <TipsList tips={tips}/>

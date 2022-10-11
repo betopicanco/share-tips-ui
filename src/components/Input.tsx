@@ -1,11 +1,11 @@
-interface IInput {
+interface InputProps {
   id: string,
   label: string,
   type: 'text' | 'password' | 'email'
   onChange: (e: string) => void
 }
 
-export default function Input({id, label, type, onChange}: IInput) {
+export default function Input({id, label, type, onChange}: InputProps) {
   return (
     <div className="text-neutral-600 m-2">
       <label htmlFor="" className="block">{label}</label>

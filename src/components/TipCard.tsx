@@ -2,15 +2,12 @@ import Link from "next/link";
 import ITip from "../interfaces/ITip";
 import SubjectsList from "./SubjectsList";
 
-interface ITipCard {
-  title: string;
-  author: string;
-  createdAt: string;
-  subjects: { name: string }[];
+interface TipCardProps {
+  tip: ITip;
 }
 
-export default function TipCard(props: ITip ) {
-  const { id, title, author, createdAt, subjects } = props;
+export default function TipCard(props: TipCardProps ) {
+  const { id, title, author, createdAt, subjects } = props.tip;
 
   return (
     <Link href={`/tip/${id}`}>
