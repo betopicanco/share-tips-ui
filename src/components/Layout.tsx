@@ -6,7 +6,7 @@ interface ILayout{
 
 export default function Layout({children}: ILayout) {
   return (
-    <div>
+    <div className={`bg-white min-h-screen`}>
       <Topbar/>
       <div className="flex justify-center">
         <div className="md:w-3/4">
