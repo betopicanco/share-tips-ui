@@ -15,11 +15,12 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   };
 }
 
-interface ITipPage {
+interface TipPageProps {
   tip: ITip;
 }
 
-export default function TipPage({ tip }: ITipPage) {
+export default function TipPage({ tip }: TipPageProps
+) {
   const { title, content, subjects, createdAt, author } = tip;
 
   return (

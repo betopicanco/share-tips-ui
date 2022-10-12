@@ -18,12 +18,12 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   }
 }
 
-interface IUserPage {
+interface UserPageProps {
   user: IAuthor,
   tips: ITip[]
 }
 
-export default function UserPage({user, tips}: IUserPage) {
+export default function UserPage({user, tips}: UserPageProps) {
   return (
     <Layout>
       <main>
