@@ -35,7 +35,7 @@ export default function TipPage({ tip }: TipPageProps
             <span>{author.name}</span>
           </div>
 
-          <div className="mt-2 indent-4">{content}</div>
+          <div className="mt-2 indent-4 text-neutral-500">{content}</div>
 
           <SubjectsList subjects={subjects} />
         </article>

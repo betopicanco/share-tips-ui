@@ -1,11 +1,12 @@
 interface ButtonProps {
   type: 'button' | 'submit',
-  content: string;
+  children: JSX.Element;
 }
-export default function Button({ content, type }: ButtonProps) {
+
+export default function Button({ children, type }: ButtonProps) {
   return (
     <button type={type} className="bg-orange-400 text-white text-center">
-      <span className="m-2">{content}</span>
+      <span className="m-2">{children}</span>
     </button>
   );
 }
