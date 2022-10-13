@@ -6,7 +6,7 @@ interface LayoutProps{
 
 export default function Layout({children}: LayoutProps) {
   return (
-    <div>
+    <div className={`bg-white min-h-screen`}>
       <Topbar/>
       <div className="flex justify-center">
         <div className="md:w-3/4">
