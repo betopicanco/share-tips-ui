@@ -1,6 +1,6 @@
 import { GetServerSidePropsContext } from "next";
 import Layout from "../../components/Layout";
-import SubjectsList from "../../components/SubjectsList";
+import SubjectsList from "../../components/subjects/SubjectsList";
 import ITip from "../../interfaces/ITip";
 import api from "../../services/api";
 

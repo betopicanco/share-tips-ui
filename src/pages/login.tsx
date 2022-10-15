@@ -40,7 +40,9 @@ const Login: NextPage = () => {
       </form>
 
       <div className="text-center" onClick={() => handleSubmit()}>
-        <Button type={'submit'} content="Entrar" />
+        <Button type={'submit'}>
+          Entrar
+        </Button>
       </div>
     </div>
   );

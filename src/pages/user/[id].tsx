@@ -1,6 +1,6 @@
 import { GetServerSidePropsContext } from "next";
 import Layout from "../../components/Layout";
-import TipsList from "../../components/TipsList";
+import TipsList from "../../components/tips/TipsList";
 import IAuthor from "../../interfaces/IAuthor";
 import ITip from "../../interfaces/ITip";
 import api from "../../services/api";

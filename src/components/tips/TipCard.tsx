@@ -1,6 +1,6 @@
 import Link from "next/link";
-import ITip from "../interfaces/ITip";
-import SubjectsList from "./SubjectsList";
+import ITip from "../../interfaces/ITip";
+import SubjectsList from "../subjects/SubjectsList";
 
 interface TipCardProps {
   tip: ITip;
@@ -19,7 +19,7 @@ export default function TipCard(props: TipCardProps ) {
       >
         <div className="flex justify-between text-sm">
           <span>{createdAt}</span>
-          <Link href={`user/${author.id}`}>
+          <Link href={`/user/${author.id}`}>
             <a>{author.name}</a>  
           </Link>
         </div>
