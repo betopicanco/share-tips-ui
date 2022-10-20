@@ -13,12 +13,22 @@ export default function Topbar() {
               <h1 className="py-4 text-2xl font-bold">ShareTIPS</h1>
             </span>
           </Link>
-          <div className="my-auto mx-4">
-            <Button type="button">
-              <Link href={`/tip/new`}>
-                <span className="px-2 py-4">Nova dica</span>
-              </Link>
-            </Button>
+          <div className="my-auto mx-4 flex space-x-2">
+            <div>
+              <Button type="button">
+                <Link href={`/tip/new`}>
+                  <span className="px-2 py-4">Nova dica</span>
+                </Link>
+              </Button>
+            </div>
+
+            <div>
+              <Button type="button">
+                <Link href={`/`}>
+                  <span className="px-2 py-4">Assuntos favoritos</span>
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </div>

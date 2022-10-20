@@ -23,6 +23,7 @@ interface UserPageProps {
   tips: ITip[]
 }
 
+// TODO add message if user do not exists
 export default function UserPage({user, tips}: UserPageProps) {
   return (
     <Layout>
