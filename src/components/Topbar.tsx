@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import Button from "./Button";
+import HamburgerIcon from "./icons/HamburgerIcon";
 
 export default function Topbar() {
   return (
     <header className="bg-neutral-600 text-white flex justify-center">
-      <div className="md:w-3/4">
+      <div className="md:w-3/4 flex space-between">
         <div className="w-full flex space-between">
           <Link href={"/"}>
             <span className="flex py-2">
@@ -21,15 +22,12 @@ export default function Topbar() {
                 </Link>
               </Button>
             </div>
-
-            <div>
-              <Button type="button">
-                <Link href={`/`}>
-                  <span className="px-2 py-4">Assuntos favoritos</span>
-                </Link>
-              </Button>
-            </div>
           </div>
+        </div>
+        <div className="my-auto">
+          <Button type="button">
+            <HamburgerIcon style="w-6 h-6 stroke-2"/>
+          </Button>
         </div>
       </div>
     </header>
