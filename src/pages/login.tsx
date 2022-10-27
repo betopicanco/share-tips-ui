@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import { useState } from "react";
-import Button from "../components/Button";
+import Button from "../components/template/Button";
 import Input from "../components/Input";
 import LoginForm from "../components/LoginForm";
 

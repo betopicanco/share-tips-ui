@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+
 import Button from "./Button";
-import HamburgerIcon from "./icons/HamburgerIcon";
+import HamburgerIcon from "components/icons/HamburgerIcon";
 
 export default function Topbar() {
   return (
@@ -16,7 +17,7 @@ export default function Topbar() {
           </Link>
           <div className="my-auto mx-4 flex space-x-2">
             <div>
-              <Button type="button">
+              <Button>
                 <Link href={`/tip/new`}>
                   <span className="px-2 py-4">Nova dica</span>
                 </Link>
@@ -25,7 +26,7 @@ export default function Topbar() {
           </div>
         </div>
         <div className="my-auto">
-          <Button type="button">
+          <Button>
             <HamburgerIcon style="w-6 h-6 stroke-2"/>
           </Button>
         </div>

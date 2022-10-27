@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import ISubject from "../../interfaces/ISubject";
 import api from "../../services/api";
-import Button from "../Button";
+import Button from "../template/Button";
 import Label from "../Label";
 import AddSubjects from "../subjects/AddSubjects";
 

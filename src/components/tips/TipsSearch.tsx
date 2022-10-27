@@ -1,6 +1,6 @@
 import ITip from "../../interfaces/ITip";
 import api from "../../services/api";
-import Button from "../Button";
+import Button from "../template/Button";
 
 interface TipsSearchProps {
   setTips: (tips: ITip[]) => void;
@@ -31,11 +31,12 @@ export default function TipsSearch({ setTips }: TipsSearchProps) {
       />
 
       <select
+        defaultValue={"author"}
         name="param"
         id="param"
         className={`px-2 rounded-md border-2 border-neutral-400`}
       >
-        <option selected value="author">
+        <option value="author">
           Autor
         </option>
         <option value="title">Título</option>
