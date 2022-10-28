@@ -1,5 +1,7 @@
+import Layout from "components/template/Layout";
+import AuthorPerfil from "components/users/AuthorPerfil";
 import { GetServerSidePropsContext } from "next";
-import Layout from "../../components/Layout";
+
 import TipsList from "../../components/tips/TipsList";
 import IAuthor from "../../interfaces/IAuthor";
 import ITip from "../../interfaces/ITip";
@@ -28,8 +30,7 @@ export default function UserPage({user, tips}: UserPageProps) {
   return (
     <Layout>
       <main>
-        <h2>{user.name}</h2>
-        <span>{user.email}</span>
+        <AuthorPerfil author={user}/>
         
         <TipsList tips={tips}/>
       </main>

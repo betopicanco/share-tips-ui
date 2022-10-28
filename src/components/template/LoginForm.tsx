@@ -1,5 +1,7 @@
 import { useState } from "react";
-import api from "../services/api";
+
+import api from "services/api";
+
 import Button from "./Button";
 import Input from "./Input";
 

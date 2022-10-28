@@ -1,6 +1,7 @@
+import Layout from "components/template/Layout";
+import TipArticle from "components/tips/TipArticle";
 import { GetServerSidePropsContext } from "next";
-import Layout from "../../components/Layout";
-import SubjectsList from "../../components/subjects/SubjectsList";
+
 import ITip from "../../interfaces/ITip";
 import api from "../../services/api";
 
@@ -19,26 +20,11 @@ interface TipPageProps {
   tip: ITip;
 }
 
-export default function TipPage({ tip }: TipPageProps
-) {
-  const { title, content, subjects, createdAt, author } = tip;
-
+export default function TipPage({ tip }: TipPageProps) {
   return (
     <Layout>
       <main>
-        <article className="my-4">
-          <h2 className="text-3xl text-yellow-500 my-4">{title}</h2>
-
-          <div className="text-neutral-400 flex justify-between w-full">
-            <span>{createdAt}</span>
-
-            <span>{author.name}</span>
-          </div>
-
-          <div className="mt-2 indent-4 text-neutral-500">{content}</div>
-
-          <SubjectsList subjects={subjects} />
-        </article>
+        <TipArticle tip={tip} />
       </main>
     </Layout>
   );

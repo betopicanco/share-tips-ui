@@ -1,8 +1,8 @@
+import CheckBox from "components/template/Checkbox";
+import { ICheckboxOption } from "components/template/CheckboxOption";
 import { useEffect, useState } from "react";
 import ISubject from "../../interfaces/ISubject";
 import api from "../../services/api";
-import CheckBox from "../Checkbox";
-import { ICheckboxOption } from "../CheckboxOption";
 
 
 

@@ -1,10 +1,12 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import ISubject from "../../interfaces/ISubject";
+
 import api from "../../services/api";
+
+import ISubject from "../../interfaces/ISubject";
 import Button from "../template/Button";
-import Label from "../Label";
 import AddSubjects from "../subjects/AddSubjects";
+import Label from "components/template/Label";
 
 export default function CreateTip() {
   const router = useRouter();

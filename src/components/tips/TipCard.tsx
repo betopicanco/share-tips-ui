@@ -21,9 +21,8 @@ export default function TipCard(props: TipCardProps ) {
     >
       <div className="flex justify-between text-sm">
         <span>{createdAt}</span>
-        <Link href={`/user/${author.id}`}>
-          <a>{author.name}</a>  
-        </Link>
+        
+        <span>{author.name}</span>  
       </div>
 
       <h3 className="text-xl text-yellow-500 font-bold my-2">{title}</h3>
