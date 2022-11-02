@@ -1,5 +1,5 @@
+import TipService from "services/TipService";
 import ITip from "../../interfaces/ITip";
-import api from "../../services/api";
 import Button from "../template/Button";
 
 interface TipsSearchProps {
@@ -10,20 +10,20 @@ export default function TipsSearch({ setTips }: TipsSearchProps) {
   const handleSubmit = async (event: any) => {
     event.preventDefault();
 
-    const term = event.target.term.value;
     const param = event.target.param.value;
+    const term = event.target.term.value;
 
-    api.get(`/tips/search?param=${param}&term=${term}`).then((res) => {
-      const tips: ITip[] = res.data;
+    if(typeof term === 'string' && typeof param === 'string') {
+      const tipService = new TipService();
+      const tips = await tipService.searchByParamAndTerm(param, term);
 
       setTips(tips);
-    });
+    }
   };
 
   return (
     <form onSubmit={handleSubmit} className={`p-2 my-2 flex space-x-4 `}>
       <input
-        required
         type={"text"}
         id={"term"}
         name={"term"}

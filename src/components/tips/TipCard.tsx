@@ -1,4 +1,3 @@
-import Link from "next/link";
 import ITip from "../../interfaces/ITip";
 import SubjectsList from "../subjects/SubjectsList";
 import { useRouter } from "next/router";
@@ -21,7 +20,7 @@ export default function TipCard(props: TipCardProps ) {
     >
       <div className="flex justify-between text-sm">
         <span>{createdAt}</span>
-        
+
         <span>{author.name}</span>  
       </div>
 

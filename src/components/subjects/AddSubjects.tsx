@@ -1,7 +1,7 @@
 import Label from "components/template/Label";
 import { useEffect, useState } from "react";
+import SubjectService from "services/SubjectService";
 import ISubject from "../../interfaces/ISubject";
-import api from "../../services/api";
 
 interface AddSubjectsProps {
   setSubjects: (subjects: ISubject[]) => void;
@@ -11,9 +11,11 @@ export default function AddSubjects({ setSubjects }: AddSubjectsProps) {
   const [availableSubjects, setAvailableSubjects] = useState<ISubject[]>([]);
 
   useEffect(() => {
-    api.get("subjects/").then((res) => {
-      setAvailableSubjects(res.data);
-    });
+    const subjectService = new SubjectService();
+
+    subjectService.findAll().then((subjects) => {
+      setAvailableSubjects(subjects)
+    })
   });
 
   return (

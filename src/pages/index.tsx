@@ -1,18 +1,17 @@
 import { useState } from "react";
-import api from "../services/api";
-
 import Layout from "components/template/Layout";
 import TipsSearch from "components/tips/TipsSearch";
 import TipsList from "components/tips/TipsList";
-
-import ITip from "../interfaces/ITip";
+import TipService from "services/TipService";
+import ITip from "interfaces/ITip";
 
 export async function getServerSideProps() {
-  const res = await api.get("tips/");
+  const tipService = new TipService();
+  const tips = await tipService.findAll();
 
   return {
     props: {
-      tips: res.data,
+      tips: tips,
     },
   };
 }

@@ -1,17 +1,20 @@
 import Layout from "components/template/Layout";
 import TipArticle from "components/tips/TipArticle";
 import { GetServerSidePropsContext } from "next";
+import TipService from "services/TipService";
 
 import ITip from "../../interfaces/ITip";
-import api from "../../services/api";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const id = context.params?.id;
-  const res = await api.get(`/tips/${id}`);
+  const tipService = new TipService();
+  let tip;
+
+  if(typeof id === 'string') tip = await tipService.findById(id);
 
   return {
     props: {
-      tip: res.data,
+      tip: tip,
     },
   };
 }

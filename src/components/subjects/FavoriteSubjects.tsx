@@ -1,48 +1,31 @@
-import CheckBox from "components/template/Checkbox";
-import { ICheckboxOption } from "components/template/CheckboxOption";
 import { useEffect, useState } from "react";
-import ISubject from "../../interfaces/ISubject";
 import api from "../../services/api";
+import { ICheckboxOption } from "components/template/CheckboxOption";
+import ISubject from "../../interfaces/ISubject";
+import SubjectService from "services/SubjectService";
 
+export async function getServerSideProps() {
+  const service = new SubjectService();
+  const availableSubjects = service.findAll();
 
+  return {
+    props: {
+      availableSubjects,
+    }
+  }
+}
 
 export default function FavoriteSubjects() {
-  const [subjects, setSubjects] = useState<ISubject[]>([]);
+  const [availableSubjects, setAvailableSubjects] = useState<ISubject[]>([]);
   const [options, setOptions] = useState<ICheckboxOption[]>([]);
 
-  // useEffect(() => {
-  //   api.get(`subjects/most-popular`).then((response) => {
-  //     const popularSubjects: ISubject[] = response.data;
+  useEffect(() => {
+    api.get("subjects/").then((res) => {
+      setAvailableSubjects(res.data);
+    });
+  });
 
-  //     setSubjects(popularSubjects);
-  //   })
-  // }, [subjects]);
+  console.log(availableSubjects);
 
-  // useEffect(() => {
-  //   const popularSubjects = [
-  //     { name: "JAVA" },
-  //     { name: "PHP" },
-  //     { name: "Javascript" },
-  //     { name: "C++" },
-  //   ];
-
-  //   setSubjects(popularSubjects);
-
-  //   const options = subjects.map((subject) => {
-  //     return {
-  //       id: subject.name,
-  //       value: subject.name,
-  //     };
-  //   });
-
-  //   setOptions(options);
-  // }, [setSubjects,setOptions, subjects]);
-
-  
-
-  return (
-    <form action="">
-      <CheckBox options={options} />
-    </form>
-  );
+  return <form action="">{/* <CheckBox options={options} /> */}</form>;
 }

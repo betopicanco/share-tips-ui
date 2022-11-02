@@ -7,6 +7,7 @@ import ISubject from "../../interfaces/ISubject";
 import Button from "../template/Button";
 import AddSubjects from "../subjects/AddSubjects";
 import Label from "components/template/Label";
+import FavoriteSubjects from "components/subjects/FavoriteSubjects";
 
 export default function CreateTip() {
   const router = useRouter();
@@ -28,7 +29,7 @@ export default function CreateTip() {
     event.preventDefault();
     const authorId = 1;
     const subjects: ISubject[] = [];
-    subjects.push({name: event.target.subject.value });
+    subjects.push({ name: event.target.subject.value });
 
     await api
       .post("tips/", {
@@ -51,7 +52,10 @@ export default function CreateTip() {
   };
 
   return (
-    <form className="text-neutral-800 my-16 space-y-4" onSubmit={handleSubmit}>
+    <form
+      className={` text-neutral-800 my-16 space-y-4 `}
+      onSubmit={handleSubmit}
+    >
       <div>
         <Label htmlFor="title">Título:</Label>
         <input
@@ -75,13 +79,15 @@ export default function CreateTip() {
         />
       </div>
 
-      <AddSubjects setSubjects={setSubjects}/>
+      <AddSubjects setSubjects={setSubjects} />
 
       <div className={`text-right`}>
         <Button type="submit">
           <span className="p-2">Salvar</span>
         </Button>
       </div>
+
+      <FavoriteSubjects />
     </form>
   );
 }
