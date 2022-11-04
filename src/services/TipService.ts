@@ -1,5 +1,12 @@
+import ISubject from "interfaces/ISubject";
 import ITip from "interfaces/ITip";
 import api from "./api";
+
+export interface ITipCreateData {
+  authorId: number,
+  title: string,
+  content: string
+}
 
 export default class TipService {
   private baseUrl = "tips/";
@@ -33,5 +40,17 @@ export default class TipService {
     );
 
     return tips;
+  }
+
+  public async register(data: ITipCreateData): Promise<ITip> {
+    const { data: tip } = await api.post(this.baseUrl, data);
+
+    return tip;
+  }
+
+  public async addSubjects(tipId: number, subjects: ISubject[]): Promise<ITip> {
+    const { data: tip } = await api.put(`/tips/${tipId}/add-subjects`, subjects);
+
+    return tip;
   }
 }

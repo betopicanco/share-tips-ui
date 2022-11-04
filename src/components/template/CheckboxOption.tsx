@@ -1,18 +1,18 @@
 interface CheckboxOptionProps {
-  option: ICheckboxOption,
+  option: ICheckboxOption;
 }
 
 export interface ICheckboxOption {
-  id: string,
-  value: string | JSX.Element
+  id: string;
+  value: string | JSX.Element;
 }
 
-export default function CheckboxOption({option}: CheckboxOptionProps) {
-  const {id, value} = option;
+export default function CheckboxOption({ option }: CheckboxOptionProps) {
+  const { id, value } = option;
 
   return (
     <div>
-      <input type="checkbox" name={id} id={id} /> 
+      <input type="checkbox" name={id} id={id} /> {value}
     </div>
-  )
+  );
 }
