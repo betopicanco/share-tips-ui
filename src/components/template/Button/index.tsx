@@ -4,7 +4,11 @@ interface ButtonProps {
   onClick?: () => any;
 }
 
-export default function Button({ children, onClick, type = "button" }: ButtonProps) {
+export default function Button({
+  children,
+  onClick,
+  type = "button",
+}: ButtonProps) {
   return (
     <button
       type={type}
