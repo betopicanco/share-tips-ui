@@ -1,9 +1,12 @@
 import SelectSubjects from "components/subjects/SelectSubjects";
+import Layout from "components/template/Layout";
 
 export default function Favorites() {
   return (
-    <div>
-      <SelectSubjects/>
-    </div>
+    <Layout>
+      <div>
+        <SelectSubjects />
+      </div>
+    </Layout>
   );
 }

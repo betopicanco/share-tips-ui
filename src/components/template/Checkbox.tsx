@@ -10,7 +10,7 @@ export default function CheckBox({ options }: CheckBoxProps) {
       {options.map((option, i) => {
         return (
           <div key={i}>
-            <CheckboxOption option={option} key={i} />
+            <CheckboxOption option={option} key={i} /> 
           </div>
         );
       })}
