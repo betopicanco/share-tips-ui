@@ -1,4 +1,4 @@
-import IAuthor from "./IAuthor";
+import IAuthor from "./user/IAuthor";
 import ISubject from "./ISubject";
 
 export default interface ITip {

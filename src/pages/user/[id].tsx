@@ -5,7 +5,7 @@ import TipService from "services/TipService";
 import UserService from "services/UserService";
 
 import TipsList from "../../components/tips/TipsList";
-import IAuthor from "../../interfaces/IAuthor";
+import IAuthor from "../../interfaces/user/IAuthor";
 import ITip from "../../interfaces/ITip";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
