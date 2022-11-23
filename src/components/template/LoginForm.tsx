@@ -1,6 +1,6 @@
-import { useState } from "react";
-
-import api from "services/api";
+import useAuth from "hooks/useAuth";
+import { useContext, useState } from "react";
+import AuthContext from "context/AuthContext";
 
 import Button from "./Button";
 import Input from "./Input";
@@ -8,26 +8,23 @@ import Input from "./Input";
 export default function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorDetails, setErrorDetails] = useState("");
+  const {login} = useContext(AuthContext);
 
-  const handleSubmit = async () => {
-    await api
-      .request({
-        method: "GET",
-        url: "users/login",
-        data: {
-          email,
-          password,
-        },
-      })
-      .then((res) => {
-        console.log(res);
-      });
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    
+    if (login) {
+      const error = await login(email, password);
+
+      if(error) setErrorDetails(error);
+    }
   };
 
   return (
     <form
-      onSubmit={handleSubmit}
-      className={`bg-white m-4 p-5 rounded-lg md:w-1/4 grid justify-center`}
+      onSubmit={(e) => handleSubmit(e)}
+      className={`bg-white m-4 'p-5 rounded-lg md:w-1/4 grid justify-center`}
     >
       <Input
         label="Email"
@@ -42,7 +39,10 @@ export default function LoginForm() {
         id="pass"
         onChange={(value: string) => setPassword(value)}
       />
-      <div className="text-center" onClick={() => handleSubmit()}>
+
+      <p className={`text-red-500`}>{errorDetails}</p>
+
+      <div className="text-center" >
         <Button type={"submit"}>Entrar</Button>
       </div>
     </form>

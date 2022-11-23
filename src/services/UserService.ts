@@ -1,4 +1,4 @@
-import IAuthor from "interfaces/IAuthor";
+import IAuthor from "interfaces/user/IAuthor";
 import api from "./api";
 
 export default class UserService {
