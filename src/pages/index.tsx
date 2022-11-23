@@ -26,15 +26,12 @@ export default function Index(props: IndexProps) {
   const [tips, setTips] = useState<ITip[]>(props.tips);
   const {userLogged} = useContext(AuthContext);
   
-  if(!userLogged) router.push('/login');
-
-    if(!userLogged) {
-      console.log('deslogado')
-      // router.push('/login');
-    } else {
-      console.log('logado')
-    }
-  })
+  if(!userLogged) {
+    console.log('deslogado')
+    // router.push('/login');
+  } else {
+    console.log('logado')
+  }
 
   return (
     <Layout>
