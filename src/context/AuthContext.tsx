@@ -51,8 +51,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
         const data: any = e.response?.data;
         const error: BadRequestExcetions = data;
         const errorDetails = error.details;
-        
-        return errorDetails;
+
+        throw new Error(errorDetails);
       });
 
     

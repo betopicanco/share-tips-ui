@@ -1,4 +1,3 @@
-import useAuth from "hooks/useAuth";
 import { useContext, useState } from "react";
 import AuthContext from "context/AuthContext";
 
@@ -9,22 +8,22 @@ export default function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorDetails, setErrorDetails] = useState("");
-  const {login} = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    
-    if (login) {
-      const error = await login(email, password);
 
-      if(error) setErrorDetails(error);
+    if (login) {
+      login(email, password).catch((err: Error) => {
+        setErrorDetails(err.message);
+      });
     }
   };
 
   return (
     <form
       onSubmit={(e) => handleSubmit(e)}
-      className={`bg-white m-4 'p-5 rounded-lg md:w-1/4 grid justify-center`}
+      className={`bg-white m-4 'p-5 rounded-lg md:w-1/4 grid justify-center `}
     >
       <Input
         label="Email"
@@ -40,9 +39,9 @@ export default function LoginForm() {
         onChange={(value: string) => setPassword(value)}
       />
 
-      <p className={`text-red-500`}>{errorDetails}</p>
+      <p className={`text-red-500 text-center my-4`}>{errorDetails}</p>
 
-      <div className="text-center" >
+      <div className="text-center">
         <Button type={"submit"}>Entrar</Button>
       </div>
     </form>
