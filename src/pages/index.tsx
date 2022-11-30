@@ -6,6 +6,8 @@ import TipService from "services/TipService";
 import ITip from "interfaces/ITip";
 import AuthContext from "context/AuthContext";
 import  router  from 'next/router';
+import useAuth from "hooks/useAuth";
+import { off } from "process";
 
 export async function getServerSideProps() {
   const tipService = new TipService();
@@ -22,16 +24,24 @@ interface IndexProps {
   tips: ITip[];
 }
 
+
+
 export default function Index(props: IndexProps) {
   const [tips, setTips] = useState<ITip[]>(props.tips);
-  const {userLogged} = useContext(AuthContext);
+  const [user, setUser] = useState<any>();
+  const { getUser } = useAuth();
   
-  if(!userLogged) {
-    console.log('deslogado')
-    // router.push('/login');
-  } else {
-    console.log('logado')
-  }
+  useEffect(() => {
+    getUser().then((user) => {
+      if(!user.isLogged) {
+        router.push('/login')
+      } else {
+        setUser(user);
+      }
+    })
+
+    console.log('aqui');
+  });
 
   return (
     <Layout>

@@ -3,12 +3,13 @@ import AuthContext from "context/AuthContext";
 
 import Button from "./Button";
 import Input from "./Input";
+import useAuth from "hooks/useAuth";
 
 export default function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorDetails, setErrorDetails] = useState("");
-  const { login } = useContext(AuthContext);
+  const { login } = useAuth();
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
