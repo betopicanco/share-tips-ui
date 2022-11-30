@@ -1,7 +1,16 @@
+import Modal from 'components/template/Modal'
 import React from 'react'
 
-export default function FavoriteSubjects() {
+interface FavoriteSubjectsProps {
+  close: () => void
+}
+
+export default function FavoriteSubjects({close}: FavoriteSubjectsProps) {
   return (
-    <div>FavoriteSubjects</div>
+    <Modal closeModal={close}>
+      <div>
+
+      </div>
+    </Modal>
   )
 }

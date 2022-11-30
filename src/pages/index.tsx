@@ -24,24 +24,20 @@ interface IndexProps {
   tips: ITip[];
 }
 
-
-
 export default function Index(props: IndexProps) {
   const [tips, setTips] = useState<ITip[]>(props.tips);
   const [user, setUser] = useState<any>();
   const { getUser } = useAuth();
   
-  useEffect(() => {
-    getUser().then((user) => {
-      if(!user.isLogged) {
-        router.push('/login')
-      } else {
-        setUser(user);
-      }
-    })
-
-    console.log('aqui');
-  });
+  // useEffect(() => {
+  //   getUser().then((user) => {
+  //     if(!user.isLogged) {
+  //       router.push('/login')
+  //     } else {
+  //       setUser(user);
+  //     }
+  //   })
+  // });
 
   return (
     <Layout>
